@@ -1,0 +1,20 @@
+#以下为在发现服务中心进行注册
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8907/eureka/
+#以下为读取服务中心配置信息
+spring:
+  application:
+    name: cn.hw.memberservice
+  cloud:
+    config:
+      discovery:
+        enabled: true  # 开启服务发现
+        serviceId: test-config # 配置中心服务名称,从配置中心服务器获取配置信息
+      name: config
+      profile: dev
+      label: master  #无用配置，有多个分支时，可用
+      allow-override: true
